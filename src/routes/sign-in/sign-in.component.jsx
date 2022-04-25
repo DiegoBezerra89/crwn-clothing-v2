@@ -17,7 +17,7 @@ const SignIn = () => {
 		<>
 			<div>
 				<h1>SignIn page</h1>
-				<Button onClick={logGoogleUser} buttonType={'google'}>Sign In with Google</Button>
+				<Button onClick={logGoogleUser} buttonType='google'>Sign In with Google</Button>
 			</div>
 			<div>
 				<SignUpForm />
