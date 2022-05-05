@@ -1,8 +1,17 @@
+import { useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
 import "./navigation.styles.scss";
 
+import { UserContext } from "../../contexts/user.context";
+
 const Navigation = () => {
+  const { currentUser } = useContext(UserContext);
+  console.log(currentUser);
+  //na primeira renderização, o contexto é null
+  //assim que o contexto é atualizado, o componente renderiza novamente, pois o hook useContext modifica o valor de currentUser, e se comporta como se o componente atual tivesse acesso ao estado, entrando assim no fluxo de renderização natural do React.
+  // um componente é re-renderizado, sempre que o estado é atualizado ou alguma de suas props seja modificada
+  // Retornando o valor atual do currentUser
   return (
     <>
       <div className="navigation">
