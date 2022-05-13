@@ -22,6 +22,7 @@ export const UserProvider = ({ children }) => {
     currentUser,
     setCurrentUser,
   };
+  console.log("Provider", currentUser);
   //passando o value para o provider vc possibilita que todos os componentes encapsulados por ele(children/<App />) possuam acesso ao currentUser, e o setCurrentUser
   return (
     <UserContext.Provider value={value}>{children}</UserContext.Provider>
