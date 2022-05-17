@@ -5,9 +5,18 @@ import "./navigation.styles.scss";
 
 import { UserContext } from "../../contexts/user.context";
 
+import { signOutUser } from "../../utils/firebase/firebase.utils";
+
 const Navigation = () => {
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
   console.log(currentUser);
+
+  const handleSignOutUser = async (currentUser) => {
+    const response = await signOutUser(currentUser);
+    console.log(response);
+    setCurrentUser(null);
+    return response;
+  };
   //na primeira renderização, o contexto é null
   //assim que o contexto é atualizado, o componente renderiza novamente, pois o hook useContext modifica o valor de currentUser, e se comporta como se o componente atual tivesse acesso ao estado, entrando assim no fluxo de renderização natural do React.
   // um componente é re-renderizado, sempre que o estado é atualizado ou alguma de suas props seja modificada
@@ -19,9 +28,18 @@ const Navigation = () => {
           <CrwnLogo />
         </Link>
         <div className="nav-links-container">
-          <Link className="nav-link" to="/auth">
-            SignIn
-          </Link>
+          {currentUser ? (
+            <span
+              className="nav-link"
+              onClick={() => handleSignOutUser(currentUser)}
+            >
+              Sign Out
+            </span>
+          ) : (
+            <Link className="nav-link" to="/auth">
+              Sign In
+            </Link>
+          )}
         </div>
       </div>
       <Outlet />
