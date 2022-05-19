@@ -1,4 +1,9 @@
-import { createContext, useState } from "react"; //cria um contexto
+import { createContext, useState, useEffect } from "react"; //cria um contexto
+
+import {
+  createUserDocumentFromAuth,
+  onAuthStateChangedListener,
+} from "../utils/firebase/firebase.utils";
 
 //o Context é dividido em 2 partes
 
@@ -22,7 +27,18 @@ export const UserProvider = ({ children }) => {
     currentUser,
     setCurrentUser,
   };
-  console.log("Provider", currentUser);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChangedListener((user) => {
+      if (user) {
+        createUserDocumentFromAuth(user);
+      }
+      console.log(user);
+      setCurrentUser(user);
+    });
+    return unsubscribe;
+  }, []);
+
   //passando o value para o provider vc possibilita que todos os componentes encapsulados por ele(children/<App />) possuam acesso ao currentUser, e o setCurrentUser
   return (
     <UserContext.Provider value={value}>{children}</UserContext.Provider>
