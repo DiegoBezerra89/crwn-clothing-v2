@@ -7,6 +7,7 @@ import App from "./App";
 import { UserProvider } from "./contexts/user.context";
 
 import "./index.scss";
+import { ProductsProvider } from "./contexts/product.context";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,7 +16,9 @@ ReactDOM.render(
         Tudo que estiver dentro do provider terá acesso ao contexto criado
       */}
       <UserProvider>
-        <App />
+        <ProductsProvider>
+          <App />
+        </ProductsProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>,
