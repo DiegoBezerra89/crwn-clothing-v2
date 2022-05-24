@@ -7,7 +7,7 @@ import App from "./App";
 import { UserProvider } from "./contexts/user.context";
 
 import "./index.scss";
-import { ProductsProvider } from "./contexts/product.context";
+import { ProductsProvider } from "./contexts/products.context";
 
 ReactDOM.render(
   <React.StrictMode>
