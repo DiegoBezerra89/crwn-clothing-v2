@@ -16,6 +16,14 @@ export const addCartItem = (cartItems, productToAdd) => {
   return [...cartItems, { ...productToAdd, quantity: 1 }];
 };
 
+export const removeCartItem = (cartItems, productToRemove) => {
+  return cartItems.map((cartItem) =>
+    cartItem.id === productToRemove.id
+      ? { ...cartItem, quantity: cartItem.quantity - 1 }
+      : cartItem
+  );
+};
+
 export const getTotalCartItems = (cartItems) => {
   const quantityArr = cartItems.map((item) => {
     return item.quantity;
@@ -48,6 +56,9 @@ export const CartProvider = ({ children }) => {
   const addItemToCart = (productToAdd) =>
     setCartItems(addCartItem(cartItems, productToAdd));
 
+  const removeItemFromCart = (productToRemove) =>
+    setCartItems(removeCartItem(cartItems, productToRemove));
+
   const value = {
     isCartOpen,
     setIsCartOpen,
@@ -55,6 +66,7 @@ export const CartProvider = ({ children }) => {
     addItemToCart,
     getTotalCartItems,
     cartCount,
+    removeItemFromCart,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
