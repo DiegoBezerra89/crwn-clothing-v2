@@ -16,12 +16,16 @@ export const addCartItem = (cartItems, productToAdd) => {
   return [...cartItems, { ...productToAdd, quantity: 1 }];
 };
 
-export const removeCartItem = (cartItems, productToRemove) => {
+export const decrementCartItem = (cartItems, productToRemove) => {
   return cartItems.map((cartItem) =>
     cartItem.id === productToRemove.id
       ? { ...cartItem, quantity: cartItem.quantity - 1 }
       : cartItem
   );
+};
+
+export const deleteCartItem = (cartItems, productToDelete) => {
+  return cartItems.filter((cartItem) => cartItem.id !== productToDelete.id);
 };
 
 export const getTotalCartItems = (cartItems) => {
@@ -56,8 +60,11 @@ export const CartProvider = ({ children }) => {
   const addItemToCart = (productToAdd) =>
     setCartItems(addCartItem(cartItems, productToAdd));
 
-  const removeItemFromCart = (productToRemove) =>
-    setCartItems(removeCartItem(cartItems, productToRemove));
+  const decrementItemFromCart = (productToRemove) =>
+    setCartItems(decrementCartItem(cartItems, productToRemove));
+
+  const deleteItemFromCart = (productToDelete) =>
+    setCartItems(deleteCartItem(cartItems, productToDelete));
 
   const value = {
     isCartOpen,
@@ -66,7 +73,8 @@ export const CartProvider = ({ children }) => {
     addItemToCart,
     getTotalCartItems,
     cartCount,
-    removeItemFromCart,
+    decrementItemFromCart,
+    deleteItemFromCart,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

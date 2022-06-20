@@ -1,7 +1,14 @@
+import { useContext } from "react";
+import { CartContext } from "../../contexts/cart.context";
+
 import QuantityHandler from "../quantity-handler/quantity-handler.component";
 
 const CheckoutItem = ({ cartItem }) => {
   const { name, imageUrl, price, id } = cartItem;
+  const { deleteItemFromCart } = useContext(CartContext);
+
+  const handleDeleteItem = () => deleteItemFromCart(cartItem);
+
   return (
     <div>
       <div>
@@ -14,6 +21,9 @@ const CheckoutItem = ({ cartItem }) => {
       <img src={imageUrl} alt={name} />
       <span>{name}</span>
       <QuantityHandler product={cartItem} />
+      <button type="button" onClick={handleDeleteItem}>
+        X
+      </button>
       <span>$ {price}</span>
     </div>
   );
