@@ -11,20 +11,13 @@ const CheckoutItem = ({ cartItem }) => {
 
   return (
     <div>
-      <div>
-        <span>Product</span>
-        <span>Sescription</span>
-        <span>Quantity</span>
-        <span>Price</span>
-        <span>Remove</span>
-      </div>
       <img src={imageUrl} alt={name} />
       <span>{name}</span>
       <QuantityHandler product={cartItem} />
+      <span>$ {price}</span>
       <button type="button" onClick={handleDeleteItem}>
         X
       </button>
-      <span>$ {price}</span>
     </div>
   );
 };
