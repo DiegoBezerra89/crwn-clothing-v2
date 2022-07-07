@@ -1,0 +1,17 @@
+.table {
+  &-container {
+    width: 80%;
+    height: 80vh;
+    margin: 0 auto;
+  }
+  &-row {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid black;
+    &--item {
+      width: 18%;
+    }
+  }
+}

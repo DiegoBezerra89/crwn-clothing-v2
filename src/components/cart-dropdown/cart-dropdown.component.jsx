@@ -9,7 +9,8 @@ import CartItem from "../cart-item/cart-item.component";
 import "./cart-dropdown.styles.scss";
 
 const CartDropdown = () => {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, totalCartValue } = useContext(CartContext);
+  console.log(totalCartValue);
   return (
     <div className="cart-dropdown-container">
       <div className="cart-items">
@@ -17,6 +18,7 @@ const CartDropdown = () => {
           <CartItem key={item.id} cartItem={item} />
         ))}
       </div>
+      <span>Total: R$ {totalCartValue.toFixed(2)}</span>
       <Button buttonType={"inverted"}>
         <Link to="/checkout">GO TO CHECKOUT</Link>
       </Button>

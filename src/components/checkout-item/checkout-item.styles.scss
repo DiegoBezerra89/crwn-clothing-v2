@@ -1,0 +1,9 @@
+.item {
+  &-container {
+    width: 18%;
+    height: 330px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+  }
+}

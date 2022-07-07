@@ -4,11 +4,13 @@ import ProductTable from "../../components/product-table/product-table.component
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 
 const CheckoutPage = () => {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, totalCartValue } = useContext(CartContext);
   return (
-    <div>
-      <ProductTable cartItems={cartItems} />
-    </div>
+    <>
+      <div>
+        <ProductTable cartItems={cartItems} />
+      </div>
+    </>
   );
 };
 
