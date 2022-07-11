@@ -22,7 +22,7 @@ const CartDropdown = () => {
           <CartItem key={item.id} cartItem={item} />
         ))}
       </div>
-      <span>Total: R$ {cartTotal.toFixed(2)}</span>
+      <span className="total">Total: R$ {cartTotal.toFixed(2)}</span>
       <Button buttonType={"inverted"} onClick={goToCheckoutHandler}>
         GO TO CHECKOUT
       </Button>

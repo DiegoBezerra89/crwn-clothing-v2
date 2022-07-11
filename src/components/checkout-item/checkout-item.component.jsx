@@ -16,7 +16,7 @@ const CheckoutItem = ({ cartItem, classes }) => {
       <img className={`${classes}--item`} src={imageUrl} alt={name} />
       <span className={`${classes}--item`}>{name}</span>
       <QuantityHandler classes={`${classes}--item`} product={cartItem} />
-      <span className={`${classes}--item`}>$ {price}</span>
+      <span className={`${classes}--item`}>$ {price.toFixed(2)}</span>
       <span
         className={`${classes}--item button`}
         type="button"
