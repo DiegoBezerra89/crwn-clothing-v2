@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  &-arrow {
+    text-align: center;
+    cursor: pointer;
+  }
+}

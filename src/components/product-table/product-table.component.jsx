@@ -4,7 +4,7 @@ import CheckoutItem from "../checkout-item/checkout-item.component";
 import "./product-table.styles.scss";
 
 const ProductTable = ({ cartItems }) => {
-  const { totalCartValue } = useContext(CartContext);
+  const { cartTotal } = useContext(CartContext);
   return (
     <div className="table-container">
       <div className="table-row">
@@ -22,7 +22,7 @@ const ProductTable = ({ cartItems }) => {
         />
       ))}
       <div className="table-row">
-        <span>TOTAL: R$ {totalCartValue.toFixed(2)}</span>
+        <span>TOTAL: R$ {cartTotal.toFixed(2)}</span>
       </div>
     </div>
   );

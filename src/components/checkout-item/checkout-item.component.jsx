@@ -13,17 +13,17 @@ const CheckoutItem = ({ cartItem, classes }) => {
 
   return (
     <div className={classes}>
-      <img className="item-container" src={imageUrl} alt={name} />
-      <span className="item-container">{name}</span>
-      <QuantityHandler product={cartItem} classes="item-container" />
-      <span className="item-container">$ {price}</span>
-      <button
-        className="item-container"
+      <img className={`${classes}--item`} src={imageUrl} alt={name} />
+      <span className={`${classes}--item`}>{name}</span>
+      <QuantityHandler classes={`${classes}--item`} product={cartItem} />
+      <span className={`${classes}--item`}>$ {price}</span>
+      <span
+        className={`${classes}--item button`}
         type="button"
         onClick={handleDeleteItem}
       >
-        X
-      </button>
+        &#10005;
+      </span>
     </div>
   );
 };
