@@ -7,7 +7,7 @@ import App from "./App";
 import { UserProvider } from "./contexts/user.context";
 
 import "./index.scss";
-import { ProductsProvider } from "./contexts/products.context";
+import { CategoriesProvider } from "./contexts/categories.context";
 import { CartProvider } from "./contexts/cart.context";
 
 ReactDOM.render(
@@ -18,9 +18,9 @@ ReactDOM.render(
       */}
       <UserProvider>
         <CartProvider>
-          <ProductsProvider>
+          <CategoriesProvider>
             <App />
-          </ProductsProvider>
+          </CategoriesProvider>
         </CartProvider>
       </UserProvider>
     </BrowserRouter>

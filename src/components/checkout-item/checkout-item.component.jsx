@@ -6,7 +6,7 @@ import QuantityHandler from "../quantity-handler/quantity-handler.component";
 import "./checkout-item.styles.scss";
 
 const CheckoutItem = ({ cartItem, classes }) => {
-  const { name, imageUrl, price, id } = cartItem;
+  const { name, imageUrl, price } = cartItem;
   const { deleteItemFromCart } = useContext(CartContext);
 
   const handleDeleteItem = () => deleteItemFromCart(cartItem);
