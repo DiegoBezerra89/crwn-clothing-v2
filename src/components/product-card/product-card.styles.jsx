@@ -8,6 +8,16 @@ export const ProductCardContainer = styled.div`
   height: 350px;
   align-items: center;
   position: relative;
+  &:hover {
+    img {
+      opacity: 0.8;
+    }
+
+    button {
+      opacity: 0.85;
+      display: flex;
+    }
+  }
 `;
 
 export const ProductImage = styled.img`
@@ -40,14 +50,4 @@ export const AddToCartButton = styled(Button)`
   position: absolute;
   top: 255px;
   display: none;
-  &:hover {
-    img {
-      opacity: 0.8;
-    }
-
-    button {
-      opacity: 0.85;
-      display: flex;
-    }
-  }
 `;

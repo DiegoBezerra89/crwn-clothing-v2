@@ -1,19 +1,26 @@
-import './form-input.styles.scss';
+import { useState } from "react";
+import {
+  Container,
+  FormInputBox,
+  FormInputLabel,
+} from "./form-input.styles.jsx";
 
 const FormInput = ({ label, ...otherProps }) => {
+  const [isFocused, setIsFocused] = useState(false);
+
   return (
-    <div className='group'>
-      <input className='form-input' {...otherProps} />
+    <Container>
+      <FormInputBox
+        {...otherProps}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+      />
       {label && (
-        <label
-          className={`${
-            otherProps.value.length ? 'shrink' : ''
-          } form-input-label`}
-        >
+        <FormInputLabel shrink={!!otherProps.value.length || isFocused}>
           {label}
-        </label>
+        </FormInputLabel>
       )}
-    </div>
+    </Container>
   );
 };
 
