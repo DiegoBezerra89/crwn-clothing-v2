@@ -31,12 +31,12 @@ export const FormInputBox = styled.input`
 `;
 
 export const FormInputLabel = styled.label`
-  top: ${(props) => (props.shrink ? "10px" : "-14px")};
-  color: ${(props) => (props.shrink ? subColor : mainColor)};
-  font-size: ${(props) => (props.shrink ? "12px" : "16px")};
-  font-weight: "normal";
-  position: "absolute";
-  pointer-events: "none";
-  left: "5px";
-  transition: "300ms ease all";
+  top: ${(props) => (!props.shrink ? "10px" : "-14px")};
+  color: ${(props) => (!props.shrink ? subColor : mainColor)};
+  font-size: ${(props) => (!props.shrink ? "12px" : "16px")};
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  transition: 300ms ease all;
 `;
