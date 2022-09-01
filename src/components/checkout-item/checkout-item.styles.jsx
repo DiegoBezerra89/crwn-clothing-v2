@@ -20,7 +20,11 @@ export const ImageContainer = styled.div`
   }
 `;
 
-export const [Name, Price] = styled.span`
+export const Name = styled.span`
+  width: 23%;
+`;
+
+export const Price = styled.span`
   width: 23%;
 `;
 
