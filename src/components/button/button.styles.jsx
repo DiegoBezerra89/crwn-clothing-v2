@@ -1,4 +1,6 @@
-.button-container {
+import styled from "styled-components";
+
+export const ButtonStyled = styled.button`
   min-width: 165px;
   width: auto;
   height: 50px;
@@ -9,7 +11,7 @@
   background-color: black;
   color: white;
   text-transform: uppercase;
-  font-family: 'Open Sans Condensed';
+  font-family: "Open Sans Condensed";
   font-weight: bolder;
   border: none;
   cursor: pointer;
@@ -43,4 +45,4 @@
       border: none;
     }
   }
-}
+`;

@@ -1,4 +1,4 @@
-import "./button.styles.scss";
+import { ButtonStyled } from "./button.styles.jsx";
 
 export const BUTTON_TYPE_CLASSES = {
   google: "google-sign-in",
@@ -7,12 +7,12 @@ export const BUTTON_TYPE_CLASSES = {
 
 const Button = ({ children, buttonType, ...otherProps }) => {
   return (
-    <button
-      className={`button-container ${BUTTON_TYPE_CLASSES[buttonType]}`}
+    <ButtonStyled
+      className={`${BUTTON_TYPE_CLASSES[buttonType]}`}
       {...otherProps}
     >
       {children}
-    </button>
+    </ButtonStyled>
   );
 };
 
