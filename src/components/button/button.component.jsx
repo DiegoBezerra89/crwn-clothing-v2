@@ -2,6 +2,7 @@ import { BaseButton, GoogleButton, InvertedButton } from "./button.styles.jsx";
 
 //### IMPORTANT ###
 //This architecture is usefull
+//
 
 export const BUTTON_TYPE_CLASSES = {
   base: "base",
