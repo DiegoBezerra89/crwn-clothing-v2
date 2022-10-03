@@ -40,7 +40,6 @@ export const UserProvider = ({ children }) => {
   };
   const value = { currentUser, setCurrentUser };
 
-  console.log("reducer", currentUser);
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener((user) => {
       if (user) {
@@ -54,11 +53,3 @@ export const UserProvider = ({ children }) => {
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
-
-/*
-const userReducer = () => {
-  return {
-    currentUser: null
-  }
-}
-*/
